@@ -1,5 +1,5 @@
 export interface ApiFetcherReturnType<T> {
-  data: T | null;
+  data?: T;
   isSuccess: boolean;
   isError: boolean;
 }
