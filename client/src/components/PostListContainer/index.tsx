@@ -9,7 +9,7 @@ interface PostListContainerPropsType {
 export default function PostListContainer({ posts }: PostListContainerPropsType) {
   return (
     <StyledPostListContainer>
-      <p className="main-title">익명게시판</p>
+      <p className="main-title">게시판</p>
       <PostList posts={posts} />
     </StyledPostListContainer>
   );

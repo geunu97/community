@@ -1,8 +1,8 @@
 import getComments from '@/apis/comment';
+import { getPosts } from '@/apis/post';
 import PostListContainer from '@/components/PostListContainer';
 import { PostWithCommentsType } from '@/types/apis/post';
 import Head from 'next/head';
-import getPosts from '../apis/post';
 
 interface HomePropsType {
   posts?: PostWithCommentsType[];
@@ -12,7 +12,7 @@ export default function Home({ posts }: HomePropsType) {
   return (
     <>
       <Head>
-        <title>익명게시판</title>
+        <title>게시판</title>
       </Head>
       <main>
         <PostListContainer posts={posts} />
