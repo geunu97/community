@@ -6,10 +6,6 @@ export const StyledPostItem = styled.div`
   padding: 20px 0;
   height: 140px;
 
-  .post-header {
-    display: flex;
-  }
-
   p {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -30,11 +26,7 @@ export const StyledPostItem = styled.div`
     margin-bottom: 15px;
   }
 
-  .post-date {
-    font-size: 14px;
-    color: ${palette.teal[300]};
-  }
-
+  .post-date,
   .post-comment {
     font-size: 14px;
     color: ${palette.teal[300]};

@@ -8,8 +8,8 @@ export async function apiFetcher<T, U>(
 ): Promise<ApiFetcherReturnType<T>> {
   try {
     const response = await axiosClient({ method, url, data });
-    return { isSuccess: true, isError: false, data: response.data };
+    return { isError: false, data: response.data };
   } catch (error) {
-    return { isSuccess: false, isError: true };
+    return { isError: true };
   }
 }

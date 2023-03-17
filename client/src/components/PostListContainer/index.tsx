@@ -1,9 +1,9 @@
-import { PostType } from '@/types/apis/post';
+import { PostWithCommentsType } from '@/types/apis/post';
 import PostList from './PostList';
 import { StyledPostListContainer } from './styles';
 
 interface PostListContainerPropsType {
-  posts?: PostType[];
+  posts?: PostWithCommentsType[];
 }
 
 export default function PostListContainer({ posts }: PostListContainerPropsType) {
