@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import getPosts from '../apis/post';
 
-export default function Home() {
+export default function Home({ apiFetcher }) {
   return (
     <>
       <Head>
@@ -9,4 +10,9 @@ export default function Home() {
       <main>...</main>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const posts = await getPosts();
+  return { props: { apiFetcher: posts } };
 }
