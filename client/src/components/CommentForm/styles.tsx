@@ -1,27 +1,28 @@
-import { palette } from '@/styles/palette';
+import { fontSize } from '@/styles/constant/fontSize';
+import { palette } from '@/styles/constant/palette';
 import styled from '@emotion/styled';
 
 export const StyledCommentForm = styled.form`
   input,
   textarea {
     border: 1px solid ${palette.gray[200]};
-    border-radius: 3px;
-    font-size: 14px;
-    padding: 10px;
+    font-size: ${fontSize.micro};
     outline: none;
+    border-radius: 3px;
+    padding: 10px;
   }
 
   .comment-header {
     margin-top: 20px;
 
     .comment-name {
-      width: 170px;
+      width: 49%;
       height: 40px;
-      margin-right: 10px;
+      margin-right: 1%;
     }
 
     .comment-password {
-      width: 170px;
+      width: 49%;
       height: 40px;
     }
   }
@@ -42,14 +43,14 @@ export const StyledCommentForm = styled.form`
     margin-top: 10px;
 
     .comment-submit {
-      width: 80px;
-      height: 40px;
-      border: none;
       background-color: ${palette.teal[300]};
+      font-size: ${fontSize.small};
+      border: none;
       color: white;
-      border-radius: 3px;
       cursor: pointer;
-      font-size: 14px;
+      width: 15%;
+      height: 40px;
+      border-radius: 3px;
     }
   }
 `;

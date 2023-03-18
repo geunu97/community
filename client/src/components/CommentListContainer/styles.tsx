@@ -1,4 +1,5 @@
-import { palette } from '@/styles/palette';
+import { fontSize } from '@/styles/constant/fontSize';
+import { palette } from '@/styles/constant/palette';
 import styled from '@emotion/styled';
 
 export const StyledCommentListContainer = styled.article`
@@ -7,8 +8,12 @@ export const StyledCommentListContainer = styled.article`
 
   .comments-title {
     color: ${palette.teal[300]};
-    font-size: 14px;
-    margin-bottom: 15px;
+    font-size: ${fontSize.small};
     font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 95%;
   }
 `;
