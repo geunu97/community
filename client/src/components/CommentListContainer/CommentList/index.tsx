@@ -1,17 +1,10 @@
 import CommentForm from '@/components/CommentForm';
-import { useComments } from '@/hooks/useComments';
 import { CommentType, CreateCommentType } from '@/types/apis/comment';
 import { FormEvent, useState } from 'react';
 import { StyledCommentItem, StyledCommentList } from './styles';
 
-interface CommentItemPropsType {
-  comments?: CommentType[];
+interface CommentItemPropsType extends CommentListPropsType {
   comment: CommentType;
-  onCreateComment: (
-    e: FormEvent<Element>,
-    postId: number,
-    data: CreateCommentType
-  ) => Promise<void>;
 }
 
 interface CommentListPropsType {
