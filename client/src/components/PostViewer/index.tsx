@@ -1,18 +1,20 @@
+import { CommentType } from '@/types/apis/comment';
 import { PostType } from '@/types/apis/post';
+
 import { StyledPostViewer } from './styles';
 
 interface PostViewerPropsType {
-  post: PostType;
+  prePost: PostType;
 }
 
-export default function PostViewer({ post }: PostViewerPropsType) {
+export default function PostViewer({ prePost }: PostViewerPropsType) {
   return (
     <StyledPostViewer>
-      <p className="post-title">{post.title}</p>
+      <p className="post-title">{prePost.title}</p>
       <p className="post-info">
-        {post.writer} | {post.created_at.slice(0, 10)} {post.created_at.slice(11, 16)}
+        {prePost.writer} | {prePost.created_at.slice(0, 10)} {prePost.created_at.slice(11, 16)}
       </p>
-      <p className="post-content">{post.content}</p>
+      <p className="post-content">{prePost.content}</p>
     </StyledPostViewer>
   );
 }

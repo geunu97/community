@@ -1,17 +1,29 @@
-import { CommentType } from '@/types/apis/comment';
-import { useState } from 'react';
+import CommentForm from '@/components/CommentForm';
+import { useComments } from '@/hooks/useComments';
+import { CommentType, CreateCommentType } from '@/types/apis/comment';
+import { FormEvent, useState } from 'react';
 import { StyledCommentItem, StyledCommentList } from './styles';
 
 interface CommentItemPropsType {
   comments?: CommentType[];
   comment: CommentType;
+  onCreateComment: (
+    e: FormEvent<Element>,
+    postId: number,
+    data: CreateCommentType
+  ) => Promise<void>;
 }
 
 interface CommentListPropsType {
   comments?: CommentType[];
+  onCreateComment: (
+    e: FormEvent<Element>,
+    postId: number,
+    data: CreateCommentType
+  ) => Promise<void>;
 }
 
-function CommentItem({ comments, comment }: CommentItemPropsType) {
+function CommentItem({ comments, comment, onCreateComment }: CommentItemPropsType) {
   const [isOpenedCommentReply, setIsOpenedCommentReply] = useState(false);
 
   return (
@@ -37,24 +49,39 @@ function CommentItem({ comments, comment }: CommentItemPropsType) {
         <button>삭제</button>
       </div>
       <div className="comment-reply">
-        {isOpenedCommentReply &&
-          comments?.map(
-            (newComment) =>
-              newComment.parent === comment.id && (
-                <CommentItem comment={newComment} key={newComment.id} />
-              )
-          )}
+        {isOpenedCommentReply && (
+          <>
+            {comments?.map(
+              (newComment) =>
+                newComment.parent === comment.id && (
+                  <CommentItem
+                    comment={newComment}
+                    key={newComment.id}
+                    onCreateComment={onCreateComment}
+                  />
+                )
+            )}
+            <CommentForm parent={comment.id} onCreateComment={onCreateComment} />
+          </>
+        )}
       </div>
     </StyledCommentItem>
   );
 }
 
-export default function CommentList({ comments }: CommentListPropsType) {
+export default function CommentList({ comments, onCreateComment }: CommentListPropsType) {
   return (
     <StyledCommentList>
       {comments?.map(
         (comment) =>
-          !comment.parent && <CommentItem comments={comments} comment={comment} key={comment.id} />
+          !comment.parent && (
+            <CommentItem
+              comments={comments}
+              comment={comment}
+              key={comment.id}
+              onCreateComment={onCreateComment}
+            />
+          )
       )}
     </StyledCommentList>
   );

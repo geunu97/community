@@ -2,9 +2,9 @@ import { PostType } from '@/types/apis/post';
 import { apiFetcher } from './common/apiFetcher';
 
 export function getPosts() {
-  return apiFetcher<PostType[], null>('get', '/posts');
+  return apiFetcher.get<PostType[]>('/posts');
 }
 
 export function getPost(postId: number) {
-  return apiFetcher<PostType, null>('get', `/posts/${postId}`);
+  return apiFetcher.get<PostType>(`/posts/${postId}`);
 }

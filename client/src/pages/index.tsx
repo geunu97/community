@@ -1,4 +1,4 @@
-import getComments from '@/apis/comment';
+import { getComments } from '@/apis/comment';
 import { getPosts } from '@/apis/post';
 import PostListContainer from '@/components/PostListContainer';
 import { PostWithCommentsLengthType } from '@/types/apis/post';
