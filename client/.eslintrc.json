@@ -5,7 +5,6 @@
   },
   "extends": "next/core-web-vitals",
   "rules": {                   
-    "max-lines-per-function": ["warn", 30],
     "max-params": ["warn", 3],
     "react/react-in-jsx-scope": "off"
   }
