@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 export const StyledPostViewer = styled.article`
   width: 80%;
-  margin: 50px auto;
+  margin: 50px auto 30px;
 
   .post-title {
     font-size: 32px;
@@ -21,7 +21,8 @@ export const StyledPostViewer = styled.article`
 
   .post-content {
     border-top: 1px solid ${palette.gray[200]};
+    border-bottom: 1px solid ${palette.gray[200]};
     font-size: 16px;
-    padding-top: 45px;
+    padding: 45px 0;
   }
 `;

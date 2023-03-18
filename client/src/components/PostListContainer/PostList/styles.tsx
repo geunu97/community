@@ -16,7 +16,7 @@ export const StyledPostItem = styled.div`
 
   .post-title {
     max-width: 60%;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 15px;
   }

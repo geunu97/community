@@ -1,13 +1,13 @@
-import { PostWithCommentsType } from '@/types/apis/post';
+import { PostWithCommentsLengthType } from '@/types/apis/post';
 import Link from 'next/link';
 import { StyledPostItem, StyledPostList } from './styles';
 
 interface PostItemPropsType {
-  post: PostWithCommentsType;
+  post: PostWithCommentsLengthType;
 }
 
 interface PostListPropsType {
-  posts?: PostWithCommentsType[];
+  posts?: PostWithCommentsLengthType[];
 }
 
 function PostItem({ post }: PostItemPropsType) {
@@ -17,7 +17,7 @@ function PostItem({ post }: PostItemPropsType) {
         <p className="post-title">{post.title}</p>
         <p className="post-content">{post.content}</p>
         <span className="post-date">{post.created_at.slice(0, 10)} | </span>
-        <span className="post-comment">댓글 수: {post.comments.length}</span>
+        <span className="post-comment">댓글 수: {post.commentsLength}</span>
       </StyledPostItem>
     </Link>
   );

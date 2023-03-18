@@ -1,11 +1,11 @@
 import getComments from '@/apis/comment';
 import { getPosts } from '@/apis/post';
 import PostListContainer from '@/components/PostListContainer';
-import { PostWithCommentsType } from '@/types/apis/post';
+import { PostWithCommentsLengthType } from '@/types/apis/post';
 import Head from 'next/head';
 
 interface HomePropsType {
-  posts?: PostWithCommentsType[];
+  posts?: PostWithCommentsLengthType[];
 }
 
 export default function Home({ posts }: HomePropsType) {
@@ -25,7 +25,7 @@ export async function getServerSideProps() {
   const posts = await getPosts();
   let isCommentError = false;
 
-  const postsWithComments = await Promise.all(
+  const postsWithCommentsLength = await Promise.all(
     posts.data?.map(async (post) => {
       const comments = await getComments(post.id);
 
@@ -35,14 +35,14 @@ export async function getServerSideProps() {
 
       return {
         ...post,
-        comments: comments.data,
+        commentsLength: comments.data?.filter((comment) => !comment.parent).length,
       };
     }) || []
   );
 
   return {
     props: {
-      posts: postsWithComments,
+      posts: postsWithCommentsLength,
       isApiFetcherError: posts.isError || isCommentError,
     },
   };

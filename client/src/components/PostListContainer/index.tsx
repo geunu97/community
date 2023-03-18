@@ -1,15 +1,15 @@
-import { PostWithCommentsType } from '@/types/apis/post';
+import { PostWithCommentsLengthType } from '@/types/apis/post';
 import PostList from './PostList';
 import { StyledPostListContainer } from './styles';
 
 interface PostListContainerPropsType {
-  posts?: PostWithCommentsType[];
+  posts?: PostWithCommentsLengthType[];
 }
 
 export default function PostListContainer({ posts }: PostListContainerPropsType) {
   return (
     <StyledPostListContainer>
-      <p className="main-title">게시판</p>
+      <p className="main-title">Board</p>
       <PostList posts={posts} />
     </StyledPostListContainer>
   );

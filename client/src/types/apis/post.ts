@@ -1,5 +1,3 @@
-import { CommentType } from './comment';
-
 export interface PostType {
   id: number;
   title: string;
@@ -10,6 +8,6 @@ export interface PostType {
   updated_at?: string;
 }
 
-export interface PostWithCommentsType extends PostType {
-  comments: CommentType[];
+export interface PostWithCommentsLengthType extends PostType {
+  commentsLength?: number;
 }
