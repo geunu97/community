@@ -1,7 +1,7 @@
 import { getComments } from '@/apis/comment';
 import { getPost } from '@/apis/post';
-import CommentListContainer from '@/components/CommentListContainer';
-import PostViewer from '@/components/PostViewer';
+import CommentList from '@/components/comment/CommentList';
+import PostDetail from '@/components/post/PostDetail';
 import { CommentType } from '@/types/apis/comment';
 import { PostType } from '@/types/apis/post';
 import Head from 'next/head';
@@ -18,8 +18,8 @@ export default function Post({ prePost, preComments }: PostPropsType) {
         <title>게시글</title>
       </Head>
       <main>
-        <PostViewer prePost={prePost} />
-        <CommentListContainer preComments={preComments} />
+        <PostDetail prePost={prePost} />
+        <CommentList preComments={preComments} />
       </main>
     </>
   );

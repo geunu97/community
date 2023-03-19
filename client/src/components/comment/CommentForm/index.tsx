@@ -2,8 +2,8 @@ import { palette } from '@/styles/constant/palette';
 import { CreateCommentType } from '@/types/apis/comment';
 import { useRouter } from 'next/router';
 import { FormEvent, useState } from 'react';
-import Button from '../common/Button';
-import Input from '../common/Input';
+import Button from '../../common/Button';
+import Input from '../../common/Input';
 import { StyledCommentForm } from './styles';
 
 interface CommentFormPropsType {

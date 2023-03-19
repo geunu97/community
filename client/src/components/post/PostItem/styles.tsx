@@ -49,5 +49,3 @@ export const StyledPostItem = styled.div`
     }
   }
 `;
-
-export const StyledPostList = styled.article``;

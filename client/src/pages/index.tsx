@@ -1,6 +1,6 @@
 import { getComments } from '@/apis/comment';
 import { getPosts } from '@/apis/post';
-import PostListContainer from '@/components/PostListContainer';
+import PostList from '@/components/post/PostList';
 import { PostWithCommentsLengthType } from '@/types/apis/post';
 import Head from 'next/head';
 
@@ -15,7 +15,7 @@ export default function Home({ posts }: HomePropsType) {
         <title>게시판</title>
       </Head>
       <main>
-        <PostListContainer posts={posts} />
+        <PostList posts={posts} />
       </main>
     </>
   );

@@ -1,20 +1,24 @@
 import { useComments } from '@/hooks/useComments';
 import { CommentType } from '@/types/apis/comment';
 import CommentForm from '../CommentForm';
-import CommentsList from './CommentList';
+import ListRenderer from '../../common/ListRenderer';
+import CommentItem from '../CommentItem';
 import { StyledCommentListContainer } from './styles';
 
-interface CommentListContainerPropsType {
+interface CommentListPropsType {
   preComments?: CommentType[];
 }
 
-export default function CommentListContainer({ preComments }: CommentListContainerPropsType) {
+export default function CommentList({ preComments }: CommentListPropsType) {
   const { comments, onCreateComment } = useComments(preComments);
+  const noParentsComments = comments?.filter((comment) => !comment.parent);
 
   return (
     <StyledCommentListContainer>
       <p className="comments-title">댓글</p>
-      <CommentsList comments={comments} onCreateComment={onCreateComment} />
+      <ListRenderer items={noParentsComments}>
+        <CommentItem comments={comments} onCreateComment={onCreateComment} />
+      </ListRenderer>
       <CommentForm onCreateComment={onCreateComment} />
     </StyledCommentListContainer>
   );

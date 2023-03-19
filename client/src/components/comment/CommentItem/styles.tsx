@@ -35,5 +35,3 @@ export const StyledCommentItem = styled.article`
     margin: 0 auto;
   }
 `;
-
-export const StyledCommentList = styled.article``;

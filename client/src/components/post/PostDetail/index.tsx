@@ -1,13 +1,11 @@
-import { CommentType } from '@/types/apis/comment';
 import { PostType } from '@/types/apis/post';
-
 import { StyledPostViewer } from './styles';
 
-interface PostViewerPropsType {
+interface PostDetailPropsType {
   prePost: PostType;
 }
 
-export default function PostViewer({ prePost }: PostViewerPropsType) {
+export default function PostDetail({ prePost }: PostDetailPropsType) {
   return (
     <StyledPostViewer>
       <p className="post-title">{prePost.title}</p>
