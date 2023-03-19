@@ -6,6 +6,7 @@
   "extends": "next/core-web-vitals",
   "rules": {                   
     "max-params": ["warn", 3],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "off"
   }
 }
