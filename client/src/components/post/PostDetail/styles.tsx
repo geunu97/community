@@ -2,7 +2,7 @@ import { fontSize } from '@/styles/constant/fontSize';
 import { palette } from '@/styles/constant/palette';
 import styled from '@emotion/styled';
 
-export const StyledPostViewer = styled.article`
+export const StyledPostDetail = styled.article`
   width: 80%;
   margin: 50px auto 30px;
 

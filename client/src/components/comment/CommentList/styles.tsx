@@ -2,7 +2,7 @@ import { fontSize } from '@/styles/constant/fontSize';
 import { palette } from '@/styles/constant/palette';
 import styled from '@emotion/styled';
 
-export const StyledCommentListContainer = styled.article`
+export const StyledCommentList = styled.article`
   margin: 30px auto;
 
   .comments-title {
