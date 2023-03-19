@@ -1,4 +1,4 @@
-import ApiErrorBoundary from '@/components/ApiErrorBoundary';
+import ApiErrorBoundary from '@/components/error/ApiErrorBoundary';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 
