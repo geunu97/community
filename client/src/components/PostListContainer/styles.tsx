@@ -3,6 +3,8 @@ import { palette } from '@/styles/constant/palette';
 import styled from '@emotion/styled';
 
 export const StyledPostListContainer = styled.article`
+  padding-bottom: 170px;
+
   .main-title {
     font-size: ${fontSize.medium};
     color: ${palette.teal[300]};
