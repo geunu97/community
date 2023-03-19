@@ -33,7 +33,7 @@ function CommentItem({ comments, comment, onCreateComment }: CommentItemPropsTyp
       <div className="comment-footer">
         {!comment.parent && (
           <Button
-            size="small"
+            scale="small"
             layout="text"
             color={palette.gray[300]}
             onClick={() => setIsOpenedCommentReply(!isOpenedCommentReply)}
@@ -45,10 +45,10 @@ function CommentItem({ comments, comment, onCreateComment }: CommentItemPropsTyp
                 }개의 답글`}
           </Button>
         )}
-        <Button size="small" layout="text" color={palette.gray[300]}>
+        <Button scale="small" layout="text" color={palette.gray[300]}>
           수정
         </Button>
-        <Button size="small" layout="text" color={palette.gray[300]}>
+        <Button scale="small" layout="text" color={palette.gray[300]}>
           삭제
         </Button>
       </div>

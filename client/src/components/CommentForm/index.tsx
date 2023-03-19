@@ -3,6 +3,7 @@ import { CreateCommentType } from '@/types/apis/comment';
 import { useRouter } from 'next/router';
 import { FormEvent, useState } from 'react';
 import Button from '../common/Button';
+import Input from '../common/Input';
 import { StyledCommentForm } from './styles';
 
 interface CommentFormPropsType {
@@ -27,19 +28,24 @@ export default function CommentForm({ parent, onCreateComment }: CommentFormProp
       onSubmit={(e) => onCreateComment(e, postId, { writer, password, content, postId, parent })}
     >
       <div className="comment-header">
-        <input
+        <Input
           className="comment-name"
           type="text"
           placeholder="이름"
           value={writer}
           onChange={(e) => setWriter(e.target.value)}
+          scale="micro"
+          width="49%"
+          color={palette.gray[200]}
         />
-        <input
-          className="comment-password"
+        <Input
           type="password"
           placeholder="비밀번호"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          scale="micro"
+          width="49%"
+          color={palette.gray[200]}
         />
       </div>
       <div className="comment-body">
@@ -52,7 +58,7 @@ export default function CommentForm({ parent, onCreateComment }: CommentFormProp
         />
       </div>
       <div className="comment-footer">
-        <Button type="submit" size="small" layout="background" color={palette.teal[300]}>
+        <Button type="submit" scale="small" layout="background" color={palette.teal[300]}>
           작성하기
         </Button>
       </div>

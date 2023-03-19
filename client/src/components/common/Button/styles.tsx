@@ -4,12 +4,12 @@ import styled from '@emotion/styled';
 import { ButtonHTMLAttributes } from 'react';
 
 export interface StyledButtonPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size: 'small' | 'medium' | 'large';
+  scale: 'small' | 'medium' | 'large';
   layout: 'background' | 'text';
   color: string;
 }
 
-const size = {
+const scale = {
   small: css`
     padding: 0.7rem 2rem;
     font-size: ${fontSize.small};
@@ -42,6 +42,6 @@ export const StyledButton = styled.button<StyledButtonPropsType>`
   outline: none;
   border-radius: 3px;
 
-  ${(props) => size[props.size]}
+  ${(props) => scale[props.scale]}
   ${(props) => layout[props.layout](props.color)}
 `;

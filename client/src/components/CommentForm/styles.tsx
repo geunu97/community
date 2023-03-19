@@ -3,28 +3,18 @@ import { palette } from '@/styles/constant/palette';
 import styled from '@emotion/styled';
 
 export const StyledCommentForm = styled.form`
-  input,
+  margin-top: 20px;
+
   textarea {
     border: 1px solid ${palette.gray[200]};
     font-size: ${fontSize.micro};
     outline: none;
     border-radius: 3px;
-    padding: 10px;
+    padding: 12px 10px;
   }
 
-  .comment-header {
-    margin-top: 20px;
-
-    .comment-name {
-      width: 49%;
-      height: 40px;
-      margin-right: 1%;
-    }
-
-    .comment-password {
-      width: 49%;
-      height: 40px;
-    }
+  .comment-header > .comment-name {
+    margin-right: 1%;
   }
 
   .comment-body {
