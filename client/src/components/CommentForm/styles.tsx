@@ -41,16 +41,5 @@ export const StyledCommentForm = styled.form`
     display: flex;
     justify-content: end;
     margin-top: 10px;
-
-    .comment-submit {
-      background-color: ${palette.teal[300]};
-      font-size: ${fontSize.small};
-      border: none;
-      color: white;
-      cursor: pointer;
-      width: 15%;
-      height: 40px;
-      border-radius: 3px;
-    }
   }
 `;

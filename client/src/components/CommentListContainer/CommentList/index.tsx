@@ -1,4 +1,6 @@
 import CommentForm from '@/components/CommentForm';
+import Button from '@/components/common/Button';
+import { palette } from '@/styles/constant/palette';
 import { CommentType, CreateCommentType } from '@/types/apis/comment';
 import { FormEvent, useState } from 'react';
 import { StyledCommentItem, StyledCommentList } from './styles';
@@ -30,16 +32,25 @@ function CommentItem({ comments, comment, onCreateComment }: CommentItemPropsTyp
       <p className="comment-content">{comment.content}</p>
       <div className="comment-footer">
         {!comment.parent && (
-          <button onClick={() => setIsOpenedCommentReply(!isOpenedCommentReply)}>
+          <Button
+            size="small"
+            layout="text"
+            color={palette.gray[300]}
+            onClick={() => setIsOpenedCommentReply(!isOpenedCommentReply)}
+          >
             {isOpenedCommentReply
               ? '답글 숨기기'
               : `${
                   comments?.filter((newComment) => newComment.parent === comment.id).length
                 }개의 답글`}
-          </button>
+          </Button>
         )}
-        <button>수정</button>
-        <button>삭제</button>
+        <Button size="small" layout="text" color={palette.gray[300]}>
+          수정
+        </Button>
+        <Button size="small" layout="text" color={palette.gray[300]}>
+          삭제
+        </Button>
       </div>
       <div className="comment-reply">
         {isOpenedCommentReply && (

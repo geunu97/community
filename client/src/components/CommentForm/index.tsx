@@ -1,6 +1,8 @@
+import { palette } from '@/styles/constant/palette';
 import { CreateCommentType } from '@/types/apis/comment';
 import { useRouter } from 'next/router';
 import { FormEvent, useState } from 'react';
+import Button from '../common/Button';
 import { StyledCommentForm } from './styles';
 
 interface CommentFormPropsType {
@@ -50,9 +52,9 @@ export default function CommentForm({ parent, onCreateComment }: CommentFormProp
         />
       </div>
       <div className="comment-footer">
-        <button className="comment-submit" type="submit">
-          작성
-        </button>
+        <Button type="submit" size="small" layout="background" color={palette.teal[300]}>
+          작성하기
+        </Button>
       </div>
     </StyledCommentForm>
   );

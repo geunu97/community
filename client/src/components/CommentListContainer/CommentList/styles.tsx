@@ -26,17 +26,8 @@ export const StyledCommentItem = styled.article`
     margin-bottom: 15px;
   }
 
-  .comment-footer {
-    display: flex;
-
-    button {
-      font-size: ${fontSize.small};
-      color: ${palette.gray[300]};
-      border: none;
-      background-color: white;
-      cursor: pointer;
-      margin-right: 8px;
-    }
+  .comment-footer > button {
+    margin-right: 8px;
   }
 
   .comment-reply {
