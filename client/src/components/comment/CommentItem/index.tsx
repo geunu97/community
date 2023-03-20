@@ -58,7 +58,7 @@ export default function CommentItem({ item, comments, onCreateComment }: Comment
       <div className="comment-reply">
         {isOpenedCommentReply && (
           <>
-            <ListRenderer items={commentReply}>
+            <ListRenderer title="답글" items={commentReply}>
               <CommentItem onCreateComment={onCreateComment} />
             </ListRenderer>
             <CommentForm parent={item.id} onCreateComment={onCreateComment} />

@@ -5,9 +5,7 @@ import styled from '@emotion/styled';
 export const StyledPostItem = styled.div`
   border-bottom: 1px solid ${palette.gray[200]};
   padding-top: 20px;
-  width: 75%;
   height: 140px;
-  margin: 0 auto;
 
   p {
     overflow: hidden;
@@ -36,7 +34,6 @@ export const StyledPostItem = styled.div`
   }
 
   @media screen and (max-width: 480px) {
-    width: 95%;
     height: 120px;
   }
 

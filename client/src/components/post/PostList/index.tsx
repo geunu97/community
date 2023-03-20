@@ -1,4 +1,5 @@
 import ListRenderer from '@/components/common/ListRenderer';
+import { fontSize } from '@/styles/constant/fontSize';
 import { PostType } from '@/types/apis/post';
 import PostItem from '../PostItem';
 
@@ -8,10 +9,12 @@ interface PostListPropsType {
 
 export default function PostList({ posts }: PostListPropsType) {
   return (
-    <>
-      <ListRenderer items={posts && [...posts].reverse()}>
-        <PostItem />
-      </ListRenderer>
-    </>
+    <ListRenderer
+      title="익명게시판"
+      titleSize={fontSize.regular}
+      items={posts && [...posts].reverse()}
+    >
+      <PostItem />
+    </ListRenderer>
   );
 }

@@ -3,7 +3,6 @@ import { CommentType } from '@/types/apis/comment';
 import CommentForm from '../CommentForm';
 import ListRenderer from '../../common/ListRenderer';
 import CommentItem from '../CommentItem';
-import { StyledCommentList } from './styles';
 
 interface CommentListPropsType {
   preComments?: CommentType[];
@@ -14,12 +13,11 @@ export default function CommentList({ preComments }: CommentListPropsType) {
   const noParentsComments = comments?.filter((comment) => !comment.parent);
 
   return (
-    <StyledCommentList>
-      <p className="comments-title">댓글</p>
-      <ListRenderer items={noParentsComments}>
+    <>
+      <ListRenderer title="댓글" items={noParentsComments}>
         <CommentItem comments={comments} onCreateComment={onCreateComment} />
       </ListRenderer>
       <CommentForm onCreateComment={onCreateComment} />
-    </StyledCommentList>
+    </>
   );
 }

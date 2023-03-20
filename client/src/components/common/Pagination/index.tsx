@@ -1,4 +1,7 @@
+import { palette } from '@/styles/constant/palette';
 import { useEffect, useState } from 'react';
+import Button from '../Button';
+import { StyledPagination } from './styles';
 
 interface PaginationPropsType {
   postsLength: number;
@@ -22,32 +25,43 @@ export default function Pagination({
     setPages(
       Array.from({ length: Math.ceil(postsLength / postsPerPage) }, (_, index) => index + 1)
     );
-  }, [postsPerPage]);
+  }, [postsPerPage, postsLength]);
 
-  if (postsPerPage === 0) {
+  if (postsLength === 0) {
     return <></>;
   }
 
   return (
-    <div>
-      <button disabled={currentSlider === 1} onClick={() => setCurrentSlider(currentSlider - 1)}>
+    <StyledPagination>
+      <Button
+        disabled={currentSlider === 1}
+        onClick={() => setCurrentSlider(currentSlider - 1)}
+        scale="small"
+        layout="text"
+        color={palette.gray[700]}
+      >
         &lt;
-      </button>
+      </Button>
       {pages?.slice((currentSlider - 1) * 10, currentSlider * 10).map((page) => (
-        <button
+        <Button
           key={page}
           onClick={() => setCurrentPage(page)}
-          style={{ color: currentPage === page ? 'black' : '#999999' }}
+          scale="small"
+          layout="text"
+          color={currentPage === page ? palette.gray[700] : palette.gray[300]}
         >
           {page}
-        </button>
+        </Button>
       ))}
-      <button
+      <Button
         disabled={currentSlider === Math.ceil(pages?.length / 10)}
         onClick={() => setCurrentSlider(currentSlider + 1)}
+        scale="small"
+        layout="text"
+        color={palette.gray[700]}
       >
         &gt;
-      </button>
-    </div>
+      </Button>
+    </StyledPagination>
   );
 }

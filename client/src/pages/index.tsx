@@ -1,5 +1,6 @@
 import { getComments } from '@/apis/comment';
 import { getPosts } from '@/apis/post';
+import Main from '@/components/common/Main';
 import PostList from '@/components/post/PostList';
 import { PostWithCommentsLengthType } from '@/types/apis/post';
 import Head from 'next/head';
@@ -14,9 +15,9 @@ export default function Home({ posts }: HomePropsType) {
       <Head>
         <title>게시판</title>
       </Head>
-      <main>
+      <Main width="75%" mobileWidth="95%">
         <PostList posts={posts} />
-      </main>
+      </Main>
     </>
   );
 }

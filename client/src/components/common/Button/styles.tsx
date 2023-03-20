@@ -1,4 +1,5 @@
 import { fontSize } from '@/styles/constant/fontSize';
+import { palette } from '@/styles/constant/palette';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { ButtonHTMLAttributes } from 'react';
@@ -41,6 +42,11 @@ export const StyledButton = styled.button<StyledButtonPropsType>`
   border: none;
   outline: none;
   border-radius: 3px;
+
+  :disabled {
+    color: ${palette.gray[200]};
+    cursor: not-allowed;
+  }
 
   ${(props) => scale[props.scale]}
   ${(props) => layout[props.layout](props.color)}

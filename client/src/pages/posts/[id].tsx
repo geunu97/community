@@ -1,6 +1,7 @@
 import { getComments } from '@/apis/comment';
 import { getPost } from '@/apis/post';
 import CommentList from '@/components/comment/CommentList';
+import Main from '@/components/common/Main';
 import PostDetail from '@/components/post/PostDetail';
 import { CommentType } from '@/types/apis/comment';
 import { PostType } from '@/types/apis/post';
@@ -17,10 +18,10 @@ export default function Post({ prePost, preComments }: PostPropsType) {
       <Head>
         <title>게시글</title>
       </Head>
-      <main>
+      <Main width="80%" mobileWidth="95%">
         <PostDetail prePost={prePost} />
         <CommentList preComments={preComments} />
-      </main>
+      </Main>
     </>
   );
 }
