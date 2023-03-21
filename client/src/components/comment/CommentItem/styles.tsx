@@ -2,7 +2,7 @@ import { fontSize } from '@/styles/constant/fontSize';
 import { palette } from '@/styles/constant/palette';
 import styled from '@emotion/styled';
 
-export const StyledCommentItem = styled.article`
+export const StyledCommentItem = styled.div`
   border-bottom: 1px solid ${palette.gray[200]};
   font-size: ${fontSize.small};
   padding: 20px 0;
