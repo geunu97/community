@@ -1,8 +1,8 @@
-import { getComments } from '@/apis/comment';
-import { getPosts } from '@/apis/post';
 import Main from '@/components/common/Main';
 import PostList from '@/components/post/PostList';
 import { PostWithCommentsLengthType } from '@/types/apis/post';
+import getPostsWithCommentsLength from '@/utils/getPostsWithCommentsLength';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
 interface HomePropsType {
@@ -22,29 +22,21 @@ export default function Home({ posts }: HomePropsType) {
   );
 }
 
-export async function getServerSideProps() {
-  const posts = await getPosts();
-  let isCommentError = false;
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  const { postsWithCommentsLength, isApiError } = await getPostsWithCommentsLength();
 
-  const postsWithCommentsLength = await Promise.all(
-    posts.data?.map(async (post) => {
-      const comments = await getComments(post.id);
-
-      if (comments.isError) {
-        isCommentError = true;
-      }
-
-      return {
-        ...post,
-        commentsLength: comments.data?.filter((comment) => !comment.parent).length,
-      };
-    }) || []
-  );
+  if (isApiError) {
+    return {
+      redirect: {
+        destination: `/error/${res.statusCode}`,
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {
       posts: postsWithCommentsLength,
-      isApiFetcherError: posts.isError || isCommentError,
     },
   };
-}
+};

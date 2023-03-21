@@ -5,6 +5,7 @@ import Main from '@/components/common/Main';
 import PostDetail from '@/components/post/PostDetail';
 import { CommentType } from '@/types/apis/comment';
 import { PostType } from '@/types/apis/post';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
 interface PostPropsType {
@@ -26,15 +27,23 @@ export default function Post({ prePost, preComments }: PostPropsType) {
   );
 }
 
-export async function getServerSideProps(context: { query: { id: number } }) {
-  const prePost = await getPost(context.query.id);
-  const preComments = await getComments(context.query.id);
+export const getServerSideProps: GetServerSideProps = async ({ query, res }) => {
+  const prePost = await getPost(Number(query.id));
+  const preComments = await getComments(Number(query.id));
+
+  if (prePost.isError || preComments.isError) {
+    return {
+      redirect: {
+        destination: `/error/${res.statusCode}`,
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {
       prePost: prePost.data,
       preComments: preComments.data,
-      isApiFetcherError: prePost.isError || preComments.isError,
     },
   };
-}
+};

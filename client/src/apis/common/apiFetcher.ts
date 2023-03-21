@@ -7,9 +7,9 @@ async function defaultApiFetcher<T>(
 ): Promise<ApiFetcherReturnType<T>> {
   try {
     const response = await axiosClient(requestInfo);
-    return { isError: false, data: response.data };
+    return { isError: false, statusCode: response.status, data: response.data };
   } catch (error) {
-    return { isError: true };
+    return { isError: true, statusCode: error.response.status };
   }
 }
 
