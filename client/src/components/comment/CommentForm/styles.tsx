@@ -13,21 +13,21 @@ export const StyledCommentForm = styled.form`
     padding: 12px 10px;
   }
 
-  .comment-header > .comment-name {
+  .commentForm-header > .commentForm-name {
     margin-right: 1%;
   }
 
-  .comment-body {
+  .commentForm-body {
     height: 180px;
     margin-top: 10px;
 
-    .comment-content {
+    .commentForm-content {
       width: 100%;
       height: 170px;
     }
   }
 
-  .comment-footer {
+  .commentForm-footer {
     display: flex;
     justify-content: end;
     margin-top: 10px;

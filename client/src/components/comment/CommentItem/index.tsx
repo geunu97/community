@@ -26,14 +26,14 @@ export default function CommentItem({ item, comments, onCreateComment }: Comment
 
   return (
     <StyledCommentItem>
-      <div className="comment-header">
-        <p className="comment-writer">{item.writer}</p>
-        <p className="comment-date">
+      <div className="commentItem-header">
+        <p className="commentItem-writer">{item.writer}</p>
+        <p className="commentItem-date">
           {item.created_at.slice(0, 10)} {item.created_at.slice(11, 16)}
         </p>
       </div>
-      <p className="comment-content">{item.content}</p>
-      <div className="comment-footer">
+      <p className="commentItem-content">{item.content}</p>
+      <div className="commentItem-footer">
         {!item.parent && (
           <Button
             scale="small"
@@ -55,7 +55,7 @@ export default function CommentItem({ item, comments, onCreateComment }: Comment
           삭제
         </Button>
       </div>
-      <div className="comment-reply">
+      <div className="commentItem-reply">
         {isOpenedCommentReply && (
           <>
             <ListRenderer title="답글" items={commentReply}>

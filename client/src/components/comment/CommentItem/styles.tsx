@@ -7,30 +7,30 @@ export const StyledCommentItem = styled.div`
   font-size: ${fontSize.small};
   padding: 20px 0;
 
-  .comment-header {
+  .commentItem-header {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
 
-    .comment-writer {
+    .commentItem-writer {
       margin-right: 10px;
       font-weight: 600;
     }
 
-    .comment-date {
+    .commentItem-date {
       color: ${palette.gray[300]};
     }
   }
 
-  .comment-content {
+  .commentItem-content {
     margin-bottom: 15px;
   }
 
-  .comment-footer > button {
+  .commentItem-footer > button {
     margin-right: 8px;
   }
 
-  .comment-reply {
+  .commentItem-reply {
     width: 90%;
     margin: 0 auto;
   }

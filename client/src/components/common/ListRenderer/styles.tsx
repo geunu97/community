@@ -7,19 +7,19 @@ export interface StyledListRendererPropsType {
 }
 
 export const StyledListRenderer = styled.article<StyledListRendererPropsType>`
-  .header {
+  .listRenderer-header {
     display: flex;
     align-items: center;
     margin: 20px 0 15px;
 
-    .title {
+    .listRenderer-title {
       color: ${palette.gray[700]};
       font-size: ${(props) => (props.titleSize ? props.titleSize : fontSize.small)};
       font-weight: bold;
       margin-right: 5px;
     }
 
-    .items-length {
+    .listRenderer-itemsLength {
       color: ${palette.teal[300]};
       font-size: ${fontSize.small};
       font-weight: bold;

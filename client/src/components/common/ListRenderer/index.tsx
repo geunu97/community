@@ -21,9 +21,9 @@ export default function ListRenderer({ title, titleSize, items, children }: List
 
   return (
     <StyledListRenderer titleSize={titleSize}>
-      <div className="header">
-        <p className="title">{title}</p>
-        <p className="items-length">{items?.length}</p>
+      <div className="listRenderer-header">
+        <p className="listRenderer-title">{title}</p>
+        <p className="listRenderer-itemsLength">{items?.length}</p>
       </div>
       {slicedItems?.map((item) => (
         <div key={item.id}>{cloneElement(children, { item })}</div>

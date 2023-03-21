@@ -27,9 +27,9 @@ export default function CommentForm({ parent, onCreateComment }: CommentFormProp
     <StyledCommentForm
       onSubmit={(e) => onCreateComment(e, postId, { writer, password, content, postId, parent })}
     >
-      <div className="comment-header">
+      <div className="commentForm-header">
         <Input
-          className="comment-name"
+          className="commentForm-name"
           type="text"
           placeholder="이름"
           value={writer}
@@ -48,16 +48,16 @@ export default function CommentForm({ parent, onCreateComment }: CommentFormProp
           color={palette.gray[200]}
         />
       </div>
-      <div className="comment-body">
+      <div className="commentForm-body">
         <textarea
-          className="comment-content"
+          className="commentForm-content"
           placeholder="댓글을 남겨주세요. (최대 500자까지 입력할 수 있습니다.)"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           maxLength={500}
         />
       </div>
-      <div className="comment-footer">
+      <div className="commentForm-footer">
         <Button type="submit" scale="small" layout="background" color={palette.teal[300]}>
           작성하기
         </Button>

@@ -15,20 +15,20 @@ export const StyledPostItem = styled.div`
     -webkit-line-clamp: 1;
   }
 
-  .post-title {
+  .postItem-title {
     font-size: ${fontSize.regular};
     font-weight: bold;
     max-width: 60%;
     margin-bottom: 15px;
   }
 
-  .post-content {
+  .postItem-content {
     font-size: ${fontSize.small};
     margin-bottom: 15px;
   }
 
-  .post-date,
-  .post-comment {
+  .postItem-date,
+  .postItem-comment {
     color: ${palette.teal[300]};
     font-size: ${fontSize.small};
   }
@@ -40,8 +40,8 @@ export const StyledPostItem = styled.div`
   @media screen and (min-width: 2000px) {
     height: 180px;
 
-    .post-title,
-    .post-content {
+    .postItem-title,
+    .postItem-content {
       margin-bottom: 25px;
     }
   }
