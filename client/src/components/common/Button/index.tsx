@@ -5,8 +5,6 @@ interface ButtonPropsType extends StyledButtonPropsType {
   children: ReactNode;
 }
 
-export function Button({ children, ...props }: ButtonPropsType) {
+export default function Button({ children, ...props }: ButtonPropsType) {
   return <StyledButton {...props}>{children}</StyledButton>;
 }
-
-export default Button;

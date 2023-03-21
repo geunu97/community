@@ -5,8 +5,6 @@ interface MainPropsType extends StyledMainPropsType {
   children: ReactNode;
 }
 
-export function Main({ children, ...props }: MainPropsType) {
+export default function Main({ children, ...props }: MainPropsType) {
   return <StyledMain {...props}>{children}</StyledMain>;
 }
-
-export default Main;
