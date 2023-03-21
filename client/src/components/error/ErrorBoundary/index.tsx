@@ -1,6 +1,6 @@
 import Button from '@/components/common/Button';
 import { palette } from '@/styles/constant/palette';
-import { getErrorMessage } from '@/utils/getErrorMessage';
+import getErrorMessage from '@/utils/getErrorMessage';
 import { useRouter } from 'next/router';
 import { StyledErrorBoundary } from './styles';
 

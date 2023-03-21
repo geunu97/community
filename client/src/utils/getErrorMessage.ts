@@ -1,4 +1,4 @@
-export const getErrorMessage = (statusCode: number) => {
+export default function getErrorMessage(statusCode: number) {
   if (500 <= statusCode) {
     return '서버오류가 발생했습니다.';
   }
@@ -12,4 +12,4 @@ export const getErrorMessage = (statusCode: number) => {
   }
 
   return '알 수 없는 오류가 발생했습니다.';
-};
+}
