@@ -20,21 +20,17 @@ export default function CommentItem({ item, comments, onCreateComment }: Comment
   const [isOpenedCommentReply, setIsOpenedCommentReply] = useState(false);
   const commentReply = comments?.filter((comment) => comment.parent === item?.id);
 
-  if (!item) {
-    return <>데이터가 없습니다.</>;
-  }
-
   return (
     <StyledCommentItem>
       <div className="commentItem-header">
-        <p className="commentItem-writer">{item.writer}</p>
+        <p className="commentItem-writer">{item?.writer}</p>
         <p className="commentItem-date">
-          {item.created_at.slice(0, 10)} {item.created_at.slice(11, 16)}
+          {item?.created_at.slice(0, 10)} {item?.created_at.slice(11, 16)}
         </p>
       </div>
-      <p className="commentItem-content">{item.content}</p>
+      <p className="commentItem-content">{item?.content}</p>
       <div className="commentItem-footer">
-        {!item.parent && (
+        {!item?.parent && (
           <Button
             scale="small"
             layout="text"
@@ -44,7 +40,7 @@ export default function CommentItem({ item, comments, onCreateComment }: Comment
             {isOpenedCommentReply
               ? '답글 숨기기'
               : `${
-                  comments?.filter((newComment) => newComment.parent === item.id).length
+                  comments?.filter((newComment) => newComment.parent === item?.id).length
                 }개의 답글`}
           </Button>
         )}
@@ -61,7 +57,7 @@ export default function CommentItem({ item, comments, onCreateComment }: Comment
             <ListRenderer title="답글" items={commentReply}>
               <CommentItem onCreateComment={onCreateComment} />
             </ListRenderer>
-            <CommentForm parent={item.id} onCreateComment={onCreateComment} />
+            <CommentForm parent={item?.id} onCreateComment={onCreateComment} />
           </>
         )}
       </div>

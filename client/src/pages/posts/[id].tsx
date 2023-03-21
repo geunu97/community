@@ -9,8 +9,8 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
 interface PostPropsType {
-  prePost: PostType;
-  preComments: CommentType[];
+  prePost?: PostType;
+  preComments?: CommentType[];
 }
 
 export default function Post({ prePost, preComments }: PostPropsType) {
