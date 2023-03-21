@@ -13,7 +13,7 @@ export default function Home({ posts }: HomePropsType) {
   return (
     <>
       <Head>
-        <title>게시판</title>
+        <title>익명게시판</title>
       </Head>
       <Main width="75%" mobileWidth="95%">
         <PostList posts={posts} />
