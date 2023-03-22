@@ -14,6 +14,10 @@ async function defaultApiFetcher<T>(
 }
 
 export const apiFetcher = {
-  get: <T>(url: string) => defaultApiFetcher<T>({ method: 'get', url }),
-  post: <T, U>(url: string, data: U) => defaultApiFetcher<T>({ method: 'post', url, data }),
+  get<T>(url: string) {
+    return defaultApiFetcher<T>({ method: 'get', url });
+  },
+  post<T, U>(url: string, data: U) {
+    return defaultApiFetcher<T>({ method: 'post', url, data });
+  },
 };

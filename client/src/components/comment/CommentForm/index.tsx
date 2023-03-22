@@ -1,5 +1,6 @@
 import { palette } from '@/styles/constant/palette';
 import { CreateCommentType } from '@/types/apis/comment';
+import { validator } from '@/utils/validator';
 import { useRouter } from 'next/router';
 import { FormEvent, useState } from 'react';
 import Button from '../../common/Button';
@@ -8,25 +9,38 @@ import { StyledCommentForm } from './styles';
 
 interface CommentFormPropsType {
   parent?: number;
-  onCreateComment: (
-    e: FormEvent<Element>,
-    postId: number,
-    data: CreateCommentType
-  ) => Promise<void>;
+  onCreateComment: (postId: number, data: CreateCommentType) => Promise<void>;
 }
 
 export default function CommentForm({ parent, onCreateComment }: CommentFormPropsType) {
+  const router = useRouter();
+  const postId = Number(router.query.id);
+
   const [writer, setWriter] = useState('');
   const [password, setPassword] = useState('');
   const [content, setContent] = useState('');
 
-  const router = useRouter();
-  const postId = Number(router.query.id);
+  const validateForm = () => {
+    if (!validator.korean(writer) || !validator.length(writer, 10)) {
+      alert('작성자는 한글 10자 이하여야 합니다.');
+    } else if (!validator.korean(content) || !validator.length(content, 500)) {
+      alert('내용은 한글 500자 이하여야 합니다.');
+    } else if (!validator.password(password) || !validator.length(password, 16)) {
+      alert('비밀번호는 영문+숫자+특수기호 16자 이하여야 합니다.');
+    } else {
+      return true;
+    }
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (validateForm()) {
+      onCreateComment(postId, { writer, password, content, postId, parent });
+    }
+  };
 
   return (
-    <StyledCommentForm
-      onSubmit={(e) => onCreateComment(e, postId, { writer, password, content, postId, parent })}
-    >
+    <StyledCommentForm onSubmit={handleSubmit}>
       <div className="commentForm-header">
         <Input
           className="commentForm-name"

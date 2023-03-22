@@ -9,11 +9,7 @@ import { StyledCommentItem } from './styles';
 interface CommentItemPropsType {
   item?: CommentType;
   comments?: CommentType[];
-  onCreateComment: (
-    e: FormEvent<Element>,
-    postId: number,
-    data: CreateCommentType
-  ) => Promise<void>;
+  onCreateComment: (postId: number, data: CreateCommentType) => Promise<void>;
 }
 
 export default function CommentItem({ item, comments, onCreateComment }: CommentItemPropsType) {

@@ -12,8 +12,7 @@ export function useComments(preComments?: CommentType[]) {
     response.isError ? router.push(`/error/${response.statusCode}`) : setComments(response.data);
   };
 
-  const onCreateComment = async (e: React.FormEvent, postId: number, data: CreateCommentType) => {
-    e.preventDefault();
+  const onCreateComment = async (postId: number, data: CreateCommentType) => {
     const response = await createComment(postId, data);
     response.isError ? router.push(`/error/${response.statusCode}`) : onGetComments(postId);
   };
