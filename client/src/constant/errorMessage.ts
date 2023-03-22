@@ -1,4 +1,8 @@
-export const errorMessage = {
+interface ErrorMessageType {
+  [statusCode: string]: string;
+}
+
+export const errorMessage: ErrorMessageType = {
   400: '클라이언트 요청이 잘못되었습니다.',
   401: '인증되지 않은 요청입니다.',
   403: '요청이 서버에서 거부되었습니다.',

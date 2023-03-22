@@ -8,7 +8,7 @@ async function defaultApiFetcher<T>(
   try {
     const response = await axiosClient(requestInfo);
     return { isError: false, statusCode: response.status, data: response.data };
-  } catch (error) {
+  } catch (error: any) {
     return { isError: true, statusCode: error.response.status };
   }
 }
