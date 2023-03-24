@@ -3,7 +3,7 @@ import Button from '@/components/common/Button';
 import ListRenderer from '@/components/common/ListRenderer';
 import { palette } from '@/styles/constant/palette';
 import { CommentType, CreateCommentType } from '@/types/apis/comment';
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 import { StyledCommentItem } from './styles';
 
 interface CommentItemPropsType {

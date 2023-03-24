@@ -1,4 +1,4 @@
-import { useComments } from '@/hooks/useComments';
+import { useHandleComment } from '@/hooks/comment/useHandleComment';
 import { CommentType } from '@/types/apis/comment';
 import CommentForm from '../CommentForm';
 import ListRenderer from '../../common/ListRenderer';
@@ -9,7 +9,7 @@ interface CommentListPropsType {
 }
 
 export default function CommentList({ preComments }: CommentListPropsType) {
-  const { comments, onCreateComment } = useComments(preComments);
+  const { comments, onCreateComment } = useHandleComment(preComments);
   const noParentsComments = comments?.filter((comment) => !comment.parent);
 
   return (

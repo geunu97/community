@@ -1,9 +1,9 @@
-import { createComment, getComments } from '@/apis/comment';
-import { CommentType, CreateCommentType } from '@/types/apis/comment';
+import { createComment, deleteComment, getComments } from '@/apis/comment';
+import { CommentType, CreateCommentType, DeleteCommentType } from '@/types/apis/comment';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-export function useComments(preComments?: CommentType[]) {
+export function useHandleComment(preComments?: CommentType[]) {
   const router = useRouter();
   const [comments, setComments] = useState(preComments);
 
