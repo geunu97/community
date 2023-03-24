@@ -10,6 +10,8 @@ interface PaginationPropsType {
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
+const pagesPerSlider = 10;
+
 export default function Pagination({
   postsLength,
   postsPerPage,
@@ -19,12 +21,19 @@ export default function Pagination({
   const [currentSlider, setCurrentSlider] = useState(1);
   const [pages, setPages] = useState<number[]>([]);
 
+  const currentPostStartIndex = (currentSlider - 1) * pagesPerSlider;
+  const currenPostEndIndex = currentSlider * pagesPerSlider;
+  const currentSliderSlice = pages?.slice(currentPostStartIndex, currenPostEndIndex);
+
   useEffect(() => {
+    const pageNumbers = Array.from(
+      { length: Math.ceil(postsLength / postsPerPage) },
+      (_, index) => index + 1
+    );
+
     setCurrentPage(1);
     setCurrentSlider(1);
-    setPages(
-      Array.from({ length: Math.ceil(postsLength / postsPerPage) }, (_, index) => index + 1)
-    );
+    setPages(pageNumbers);
   }, [postsPerPage, postsLength]);
 
   if (postsLength === 0) {
@@ -42,7 +51,7 @@ export default function Pagination({
       >
         &lt;
       </Button>
-      {pages?.slice((currentSlider - 1) * 10, currentSlider * 10).map((page) => (
+      {currentSliderSlice?.map((page) => (
         <Button
           key={page}
           onClick={() => setCurrentPage(page)}
@@ -54,7 +63,7 @@ export default function Pagination({
         </Button>
       ))}
       <Button
-        disabled={currentSlider === Math.ceil(pages?.length / 10)}
+        disabled={currentSlider === Math.ceil(pages?.length / pagesPerSlider)}
         onClick={() => setCurrentSlider(currentSlider + 1)}
         scale="small"
         layout="text"
