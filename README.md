@@ -269,7 +269,7 @@ http://localhost:5000/
 - [getServerSideProps](https://nextjs.org/docs/api-reference/data-fetching/get-server-side-props)는 요청 시 매번 서버에서 파일을 생성하기 때문에, 데이터가 자주 변하는 페이지에 사용하는 것이 적합합니다. 그래서 자주 변하는 게시물, 댓글 데이터가 있는 페이지에서 아래와 같이 사용하였습니다. 또한 `query`를 통해 현재 경로 정보를 얻었습니다.
   ```ts
   // pages/posts/[id].tsx
-      export default function Post({ prePost, preComments }: PostPropsType) {
+    export default function Post({ prePost, preComments }: PostPropsType) {
       console.log(prePost);
       console.log(preComments);
       
@@ -341,7 +341,7 @@ http://localhost:5000/
 
 #### 효율적인 에러 핸들링 방법이 있을까?
 - 서버에서 데이터 가져올 때 발생하는 에러와 클라이언트에서 데이터 가져올 때 발생하는 에러를 효율적으로 처리할 방법에 대해 고민했습니다. 
-- 첫 번째로는, `pages/404.js`를 정의한 후 필요한 곳에서 `getServerSide`, `getStatic`을 통해 반환하는 값을 아래의 코드와 같이 `NotFount: true`로 설정하면 `404페이지`로 라우팅 되도록 구현할 수 있습니다. 하지만 잘못된 경로 접근 오류와 겹치며, 마찬가지로 다양한 `statusCode`에 따라 정의해주고 싶었기에 선택하지 않았습니다.   
+- 첫 번째로는, `pages/404.js`를 정의한 후 필요한 곳에서 `getServerSide`, `getStatic`을 통해 반환하는 값을 아래의 코드와 같이 `NotFount: true`로 설정하면 `404페이지`로 라우팅 되도록 구현할 수 있습니다. 하지만 잘못된 경로 접근 오류와 겹치며, 다양한 `statusCode`에 따라 정의해주고 싶었기에 선택하지 않았습니다.   
   ```ts
     export async function getServerSideProps(context) {
       const res = await fetch(`https://.../data`)
