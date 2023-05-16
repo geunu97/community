@@ -48,14 +48,14 @@ node server.js
 
 ```
 cd client
-yarn install
-yarn run dev
+npm install
+npm run dev
 ```
 
 #### 5. 로컬 환경에서 확인하기
 
 ```
-http://localhost:5000/
+http://localhost:5500/
 ```
 
 
