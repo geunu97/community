@@ -2,9 +2,9 @@ import { useHandleCommentForm } from '@/hooks/comment/useHandleCommentForm';
 import { palette } from '@/styles/constant/palette';
 import { CreateCommentType } from '@/types/apis/comment';
 import { useRouter } from 'next/router';
-import Button from '../../common/Button';
 import Input from '../../common/Input';
 import { StyledCommentForm } from './styles';
+import { Button } from '@/stories/atoms/Button/Button';
 
 interface CommentFormPropsType {
   parent?: number;
@@ -54,9 +54,7 @@ export default function CommentForm({ parent, onCreateComment }: CommentFormProp
         />
       </div>
       <div className="commentForm-footer">
-        <Button type="submit" scale="small" layout="background" color={palette.teal[300]}>
-          작성하기
-        </Button>
+        <Button type="submit" label="작성하기" size="medium" />
       </div>
     </StyledCommentForm>
   );

@@ -2,29 +2,37 @@ import React from 'react';
 import styles from './button.module.scss';
 
 interface ButtonProps {
-  primary?: boolean;
-  backgroundColor?: string;
+  type?: 'button' | 'submit';
+  color?: 'primary' | 'secondary' | 'black' | 'success' | 'warning' | 'danger';
+  style?: 'outlined' | 'inline' | 'ghost';
   size?: 'small' | 'medium' | 'large';
-  label: string;
+  shape?: 'squre' | 'circle';
+  disabled?: boolean;
+  label?: string;
   onClick?: () => void;
 }
 
 export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
+  type = 'button',
+  color = 'primary',
+  style = 'inline',
+  size = 'small',
+  shape = 'circle',
+  disabled = false,
   label,
   ...props
 }: ButtonProps) => {
   return (
     <button
-      type="button"
+      type={type}
+      disabled={disabled}
       className={[
-        styles['storybook-button'],
-        styles[`storybook-button--${size}`],
-        styles[primary ? 'storybook-button--primary' : 'storybook-button--secondary'],
+        styles['button'],
+        styles[`button-color--${color}`],
+        styles[`button-style--${style}`],
+        styles[`button-size--${size}`],
+        styles[`button-shape--${shape}`],
       ].join(' ')}
-      style={{ backgroundColor: `${backgroundColor}` }}
       {...props}
     >
       {label}

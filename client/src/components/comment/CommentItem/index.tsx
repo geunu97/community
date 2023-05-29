@@ -1,10 +1,9 @@
 import CommentForm from '@/components/comment/CommentForm';
-import Button from '@/components/common/Button';
 import ListRenderer from '@/components/common/ListRenderer';
-import { palette } from '@/styles/constant/palette';
 import { CommentType, CreateCommentType } from '@/types/apis/comment';
 import { useState } from 'react';
 import { StyledCommentItem } from './styles';
+import { Button } from '@/stories/atoms/Button/Button';
 
 interface CommentItemPropsType {
   item?: CommentType;
@@ -28,24 +27,21 @@ export default function CommentItem({ item, comments, onCreateComment }: Comment
       <div className="commentItem-footer">
         {!item?.parent && (
           <Button
-            scale="small"
-            layout="text"
-            color={palette.gray[300]}
+            style="ghost"
+            color="secondary"
+            size="medium"
             onClick={() => setIsOpenedCommentReply(!isOpenedCommentReply)}
-          >
-            {isOpenedCommentReply
-              ? '답글 숨기기'
-              : `${
-                  comments?.filter((newComment) => newComment.parent === item?.id).length
-                }개의 답글`}
-          </Button>
+            label={
+              isOpenedCommentReply
+                ? '답글 숨기기'
+                : `${
+                    comments?.filter((newComment) => newComment.parent === item?.id).length
+                  }개의 답글`
+            }
+          />
         )}
-        <Button scale="small" layout="text" color={palette.gray[300]}>
-          수정
-        </Button>
-        <Button scale="small" layout="text" color={palette.gray[300]}>
-          삭제
-        </Button>
+        <Button style="ghost" color="secondary" label="수정" size="medium" />
+        <Button style="ghost" color="secondary" label="삭제" size="medium" />
       </div>
       <div className="commentItem-reply">
         {isOpenedCommentReply && (

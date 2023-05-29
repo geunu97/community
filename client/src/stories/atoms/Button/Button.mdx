@@ -1,0 +1,58 @@
+import { Meta, Primary, Controls, Stories, Story, Canvas } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+<Primary />
+
+## Props
+
+<Controls />
+
+{/* ## Stories */}
+
+{/* <Stories /> */}
+
+## Stories
+
+### Colors
+
+<Canvas>
+  <Story of={ButtonStories.PrimaryColor} />
+  <Story of={ButtonStories.SecondaryColor} />
+  <Story of={ButtonStories.BlackColor} />
+  <Story of={ButtonStories.SuccessColor} />
+  <Story of={ButtonStories.WarningColor} />
+  <Story of={ButtonStories.DangerColor} />
+</Canvas>
+
+### Style
+
+<Canvas>
+  <Story of={ButtonStories.OutlinedStyle} />
+  <Story of={ButtonStories.InlineStyle} />
+  <Story of={ButtonStories.GhostStyle} />
+</Canvas>
+
+### Shape
+
+<Canvas>
+  <Story of={ButtonStories.SqureShape} />
+  <Story of={ButtonStories.CircleShape} />
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story of={ButtonStories.Disabled} />
+</Canvas>
+
+### Size
+
+<Canvas>
+  <Story of={ButtonStories.SmallSize} />
+  <Story of={ButtonStories.MediumSize} />
+  <Story of={ButtonStories.LargeSize} />
+</Canvas>

@@ -1,7 +1,7 @@
 import { palette } from '@/styles/constant/palette';
 import { useEffect, useState } from 'react';
-import Button from '../Button';
 import { StyledPagination } from './styles';
+import { Button } from '@/stories/atoms/Button/Button';
 
 interface PaginationPropsType {
   postsLength: number;
@@ -45,32 +45,30 @@ export default function Pagination({
       <Button
         disabled={currentSlider === 1}
         onClick={() => setCurrentSlider(currentSlider - 1)}
-        scale="small"
-        layout="text"
-        color={palette.gray[700]}
-      >
-        &lt;
-      </Button>
+        style="ghost"
+        color="secondary"
+        size="medium"
+        label="&lt;"
+      />
       {currentSliderSlice?.map((page) => (
         <Button
           key={page}
+          disabled={currentSlider === Math.ceil(pages?.length / pagesPerSlider)}
           onClick={() => setCurrentPage(page)}
-          scale="small"
-          layout="text"
-          color={currentPage === page ? palette.gray[700] : palette.gray[300]}
-        >
-          {page}
-        </Button>
+          style="ghost"
+          size="medium"
+          color={currentPage === page ? 'black' : 'secondary'}
+          label={`${page}`}
+        />
       ))}
       <Button
         disabled={currentSlider === Math.ceil(pages?.length / pagesPerSlider)}
         onClick={() => setCurrentSlider(currentSlider + 1)}
-        scale="small"
-        layout="text"
-        color={palette.gray[700]}
-      >
-        &gt;
-      </Button>
+        style="ghost"
+        color="secondary"
+        size="medium"
+        label="&gt;"
+      />
     </StyledPagination>
   );
 }

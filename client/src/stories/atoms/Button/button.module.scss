@@ -1,30 +1,86 @@
-.storybook-button {
+/* 초기화 */
+.button {
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
-  border: 0;
-  border-radius: 3em;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
 }
-.storybook-button--primary {
+
+/* 비활성화 */
+.button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* 색상 */
+.button-color--primary {
+  color: $color-teal-base;
+  background-color: $color-teal-base;
+  border: 1px solid $color-teal-base;
+}
+.button-color--secondary {
+  color: $color-gray-lighter;
+  background-color: $color-gray-lighter;
+  border: 1px solid $color-gray-lighter;
+}
+.button-color--black {
+  color: black;
+  background-color: black;
+  border: 1px solid black;
+}
+.button-color--white {
   color: white;
-  background-color: #1ea7fd;
+  background-color: white;
+  border: 1px solid white;
 }
-.storybook-button--secondary {
-  color: #333;
+.button-color--success {
+  color: $color-green-base;
+  background-color: $color-green-base;
+  border: 1px solid $color-green-base;
+}
+.button-color--warning {
+  color: $color-orange-base;
+  background-color: $color-orange-base;
+  border: 1px solid $color-orange-base;
+}
+.button-color--danger {
+  color: $color-red-base;
+  background-color: $color-red-base;
+  border: 1px solid $color-red-base;
+}
+
+/* 버튼 스타일 */
+.button-style--outlined {
   background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
-.storybook-button--small {
-  font-size: 12px;
-  padding: 10px 16px;
+.button-style--inline {
+  color: white;
+  border: 0;
 }
-.storybook-button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
+.button-style--ghost {
+  background-color: transparent;
+  border: 0;
 }
-.storybook-button--large {
-  font-size: 16px;
-  padding: 12px 24px;
+
+/* 크기 */
+.button-size--small {
+  padding: 0.7rem 2rem;
+  font-size: $font-size-micro;
+}
+.button-size--medium {
+  padding: 1rem 2rem;
+  font-size: $font-size-small;
+}
+.button-size--large {
+  padding: 1.5rem 3rem;
+  font-size: $font-size-large;
+}
+
+/* 테두리 각도 */
+.button-shape--squre {
+  border-radius: 0;
+}
+.button-shape--circle {
+  border-radius: 3em;
 }
