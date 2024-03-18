@@ -18,7 +18,6 @@
 - [미해결 이슈 & 개선 가능 사항](#미해결-이슈--개선-가능-사항)
 - [기술적인 고민들](#기술적인-고민들) 
 - [리팩터링](#리팩터링) 
-- [개선사항](#개선사항) 
 
 
 ## 실행 방법
@@ -616,47 +615,6 @@ http://localhost:5500/
   <Button type="submit" scale="small" layout="background" color={palette.teal[300]}>작성하기</Button>
   ```
 
-
-## 개선사항
-
-### 1. dependencies에 라이브러리 알맞게 설치하여 빌드 시간 단축하기
-
-#### 문제점 발견
-- 기존에 `eslint`와 `eslint-config-next`를 `package.json`의 `dependencies`에 설치했던 것을 발견했습니다. 
-        
-#### 원인
-- `dependencies`에 설치되어 있는 라이브러리의 경우, 배포 단계에서 필요한 라이브러리들로 이루어져 빌드할 때 `dependencies`에 있는 라이브러리들을 참고하게 됩니다.
-- 반면, `devDependencies`에 설치되어 있는 라이브러리의 경우, 개발 단계에서 필요한 라이브러리들로 이루어져 빌드할 때 참고하지 않습니다.
-- 따라서, `eslint`는 개발 단계에서 코드의 퀄리티를 높이고 잠재적인 버그를 피하기 위한 용도이므로 `devDependencies`에 설치되어 있는 것이 옳다고 생각했습니다.
-
-#### 해결
-- `dependencies`에서 `devDependencies`로 `eslint`를 이동하였습니다.
-  ```json
-  // package.json
-  "dependencies": {
-    "@emotion/react": "11.10.0",
-    "@emotion/styled": "11.10.0",
-    "@types/node": "18.15.3",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "axios": "^1.3.4",
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.9.5"
-  },
-  "devDependencies": {
-    "eslint": "^8.36.0",
-    "eslint-config-next": "^13.2.4"
-  }
-  ```
-#### 개선전
-- 빌드 시간: 13.89s
-![3](https://user-images.githubusercontent.com/73439375/226803536-0e4edb02-e58b-4ba5-b55e-9ddda4dfac5a.png)
-
-#### 개선후
-- 빌드 시간: 12.13s
-![1](https://user-images.githubusercontent.com/73439375/226803528-c95fb9d4-1b26-47c8-9bb9-bbff4eb3db97.png)
 
 
 
