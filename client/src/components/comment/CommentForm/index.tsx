@@ -18,6 +18,9 @@ export default function CommentForm({ parent, onCreateComment }: CommentFormProp
     parent
   );
 
+  // Git GUI 테스트1
+  // Git GUI 테스트2
+  // Git GUI 테스트3
   return (
     <StyledCommentForm onSubmit={(e) => onSubmitForm(e, onCreateComment)}>
       <div className="commentForm-header">

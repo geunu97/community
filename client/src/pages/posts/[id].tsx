@@ -13,6 +13,8 @@ interface PostPropsType {
   preComments?: CommentType[];
 }
 
+// Git GUI 테스트
+// Git GUI 테스트
 export default function Post({ prePost, preComments }: PostPropsType) {
   return (
     <>
